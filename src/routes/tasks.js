@@ -1,3 +1,4 @@
+const deleteTask = require("../controllers/tasks/deleteTask");
 const getTask = require("../controllers/tasks/getTask");
 const postTask = require("../controllers/tasks/postTask");
 const updateTaskStatus = require("../controllers/tasks/updateTaskStatus");
@@ -10,6 +11,8 @@ router.get("/api/task", getTask);
 router.post("/api/task", postTask);
 
 router.patch('/api/task/update-order-status', updateTaskStatus);
+
+router.delete("/api/task", deleteTask);
 
 
 
