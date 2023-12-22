@@ -3,7 +3,10 @@ const app = express();
 const cors = require("cors");
 
 const clientRoutes = require("./routes/clients");
-const taskRoutes = require("./routes/tasks")
+const taskRoutes = require("./routes/tasks");
+const connectDB = require("./db/connectDB");
+
+const port = process.env.PORT || 9001;
 
 
 
@@ -27,4 +30,14 @@ app.get("/", (req, res) => {
 
 
 
-module.exports = app;
+//Database connection and listen server
+
+const listenServer = async () => {
+    await connectDB();
+    app.listen(port, () => {
+        console.log(`The server is running at http://localhost:${port}`)
+    });
+
+}
+
+listenServer();
